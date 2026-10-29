@@ -1,0 +1,94 @@
+diff --git a/gps/android/2.1/android.hardware.gnss@2.1-service-qti.xml b/gps/android/2.1/android.hardware.gnss@2.1-service-qti.xml
+index 842fb6e..c5384a8 100644
+--- a/gps/android/2.1/android.hardware.gnss@2.1-service-qti.xml
++++ b/gps/android/2.1/android.hardware.gnss@2.1-service-qti.xml
+@@ -1,29 +1,12 @@
+-<!-- Copyright (c) 2020, The Linux Foundation. All rights reserved.
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++    Input:
++        device/motorola/sm6450-common/gps/android/2.1/android.hardware.gnss@2.1-service-qti.xml
+ 
+-Redistribution and use in source and binary forms, with or without
+-modification, are permitted provided that the following conditions are
+-met:
+-    * Redistributions of source code must retain the above copyright
+-      notice, this list of conditions and the following disclaimer.
+-    * Redistributions in binary form must reproduce the above
+-      copyright notice, this list of conditions and the following
+-      disclaimer in the documentation and/or other materials provided
+-      with the distribution.
+-    * Neither the name of The Linux Foundation nor the names of its
+-      contributors may be used to endorse or promote products derived
+-      from this software without specific prior written permission.
+-
+-THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+-ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+-BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+-BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+-IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++    Both fqnames must stay declared: hwservicemanager refuses to register the
++    2.1 service unless its 1.1 superclass is also in the device manifest.
++    (The Android 16 compatibility check only rejects the *AIDL* GNSS v1 entry,
++    which is why the separate AIDL fragment is empty on this build.)
+ -->
+ <manifest version="1.0" type="device">
+     <hal format="hidl">
+@@ -33,4 +16,3 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+         <fqname>@2.1::IGnss/default</fqname>
+     </hal>
+ </manifest>
+-
+diff --git a/gps/android/aidl-impl/android.hardware.gnss-aidl-service-qti.xml b/gps/android/aidl-impl/android.hardware.gnss-aidl-service-qti.xml
+index d7e709c..3a07484 100644
+--- a/gps/android/aidl-impl/android.hardware.gnss-aidl-service-qti.xml
++++ b/gps/android/aidl-impl/android.hardware.gnss-aidl-service-qti.xml
+@@ -1,33 +1,13 @@
+-<!-- Copyright (c) 2021, The Linux Foundation. All rights reserved.
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++    Input:
++        device/motorola/sm6450-common/gps/android/aidl-impl/android.hardware.gnss-aidl-service-qti.xml
+ 
+-Redistribution and use in source and binary forms, with or without
+-modification, are permitted provided that the following conditions are
+-met:
+-* Redistributions of source code must retain the above copyright
+-notice, this list of conditions and the following disclaimer.
+-* Redistributions in binary form must reproduce the above
+-copyright notice, this list of conditions and the following
+-disclaimer in the documentation and/or other materials provided
+-with the distribution.
+-* Neither the name of The Linux Foundation nor the names of its
+-contributors may be used to endorse or promote products derived
+-from this software without specific prior written permission.
+-
+-THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+-ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+-BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+-BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+-IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++    The Qualcomm AIDL GNSS implementation here is android.hardware.gnss-V1-ndk.
++    Android 16 (FCM 7+) marks GNSS AIDL v1 as deprecated and requires v2, so the
++    AIDL interface is no longer advertised. The HIDL 2.1 service
++    (android.hardware.gnss@2.1-service-qti) remains declared and is what the
++    framework binds to on this build.
+ -->
+ <manifest version="1.0" type="device">
+-    <hal format="aidl">
+-        <name>android.hardware.gnss</name>
+-        <fqname>IGnss/default</fqname>
+-    </hal>
+ </manifest>

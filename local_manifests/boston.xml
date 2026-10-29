@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="evoxdl" fetch="https://github.com/evoxdl/" revision="lineage-23.2" />
+
+  <project path="device/motorola/boston"             name="android_device_motorola_boston"             remote="evoxdl" />
+  <project path="device/motorola/sm6450-common"      name="android_device_motorola_sm6450-common"      remote="evoxdl" />
+  <project path="vendor/motorola/boston"             name="proprietary_vendor_motorola_boston"         remote="evoxdl" />
+  <project path="vendor/motorola/sm6450-common"      name="proprietary_vendor_motorola_sm6450-common"  remote="evoxdl" />
+  <project path="kernel/motorola/sm6450"             name="android_kernel_motorola_sm6450"             remote="evoxdl" />
+  <project path="kernel/motorola/sm6450-modules"     name="android_kernel_motorola_sm6450-modules"     remote="evoxdl" />
+  <project path="kernel/motorola/sm6450-devicetrees" name="android_kernel_motorola_sm6450-devicetrees" remote="evoxdl" />
+  <project path="hardware/motorola"                  name="android_hardware_motorola"                  remote="evoxdl" />
+</manifest>

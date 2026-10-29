@@ -1,0 +1,16 @@
+diff --git a/AndroidProducts.mk b/AndroidProducts.mk
+index 29dce76..4f3dc18 100644
+--- a/AndroidProducts.mk
++++ b/AndroidProducts.mk
+@@ -15,4 +15,10 @@
+ #
+ 
+ PRODUCT_MAKEFILES := \
+-    $(LOCAL_DIR)/lineage_boston.mk
++    $(LOCAL_DIR)/lineage_boston.mk \
++    $(LOCAL_DIR)/custom_boston.mk
++
++COMMON_LUNCH_CHOICES := \
++    custom_boston-bp4a-user \
++    custom_boston-bp4a-userdebug \
++    custom_boston-bp4a-eng

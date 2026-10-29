@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Input:
+        device/motorola/sm6450-common/gps/android/aidl-impl/android.hardware.gnss-aidl-service-qti.xml
+
+    The Qualcomm AIDL GNSS implementation here is android.hardware.gnss-V1-ndk.
+    Android 16 (FCM 7+) marks GNSS AIDL v1 as deprecated and requires v2, so the
+    AIDL interface is no longer advertised. The HIDL 2.1 service
+    (android.hardware.gnss@2.1-service-qti) remains declared and is what the
+    framework binds to on this build.
+-->
+<manifest version="1.0" type="device">
+</manifest>
